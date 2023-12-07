@@ -4,13 +4,11 @@ public class HIJ extends Employee{
 
 	public HIJ(int basepay) {
 		super(basepay);
-		
+		// TODO Auto-generated constructor stub
 	}
-
-	
 	
 	static double main() {
-		double pay = ((EmployeeMath.yearTotal - (EmployeeMath.basepay1 * 12 * 5) - (EmployeeMath.basepay2 * 12 * 2))/3)/12;
+		double pay = ((EmployeeMath.yearTotal - (ABCDE.basepay * 12 * 5) - (FG.basepay * 12 * 2))/3)/12;
 		return pay;
 	}
 
