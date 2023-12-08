@@ -49,9 +49,16 @@ public class EmployeeMath {
 		f.add(yearDropDown);
 		
 		
-		Button btn = new Button("Knapp");
+		Button btn = new Button("Räkna ut");
 		btn.setBounds(100, 250, 150, 50);	
 		f.add(btn);
+		
+		
+		JTextArea resultField = new JTextArea();
+		resultField.setBounds(100, 350, 300, 300);
+		resultField.setEditable(false);
+		f.add(resultField);
+		
 		
 		Label invis = new Label();
 		f.add(invis);
@@ -66,28 +73,21 @@ public class EmployeeMath {
 
 			public void actionPerformed(ActionEvent e) {
 				
-				System.out.println(yearDropDown.getSelectedItem());
+								
+				basepay1 = Integer.valueOf(payField1.getText());
 				
-				Scanner sc = new Scanner(System.in);
+				basepay2 = Integer.valueOf(payField2.getText());
 				
-				basepay1 = sc.nextInt();
+				yearTotal = Integer.valueOf(totalPayField.getText());
 				
-				basepay2 = sc.nextInt();
+				year = Integer.valueOf((String) yearDropDown.getSelectedItem());
 				
-				yearTotal = sc.nextInt();
-				
-				year = sc.nextInt();
-				
-				System.out.println(ABCDE.calc(basepay1));
-				System.out.println(FG.calc(basepay2));
-				System.out.println(HIJ.calc());
-				
+				resultField.setText(String.valueOf((int)ABCDE.calc(basepay1)) + " Kr per månad för grupp 1\n");
+				resultField.setText(resultField.getText() + String.valueOf((int)FG.calc(basepay2)) + " Kr per månad för grupp 2\n");
+				resultField.setText(resultField.getText() + String.valueOf((int)HIJ.calc()) + " Kr per månad för grupp 3");
 			}
 		});
-			
-			
 		
-
 	}
 
 }
