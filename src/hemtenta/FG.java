@@ -2,8 +2,8 @@ package hemtenta;
 
 public class FG extends Employee{
 	
-	public FG(int basepay) {
-		super(basepay);
+	public FG() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
