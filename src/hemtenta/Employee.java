@@ -10,11 +10,9 @@ public class Employee {
 		
 	}
 
-
-
 	
-	static double main() {
-		double pay = basepay * (Math.pow(1.05 , (EmployeeMath.year - 2023)));
+	static double calc(int money) {
+		double pay = money * (Math.pow(1.05 , (EmployeeMath.year - 2023)));
 		return pay;
 	}
 	
