@@ -1,5 +1,4 @@
 package hemtenta;
-import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -55,7 +54,7 @@ public class EmployeeMath {
 		
 		
 		JTextArea resultField = new JTextArea();
-		resultField.setBounds(100, 350, 300, 300);
+		resultField.setBounds(100, 350, 300, 200);
 		resultField.setEditable(false);
 		f.add(resultField);
 		
