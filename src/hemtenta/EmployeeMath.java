@@ -41,7 +41,7 @@ public class EmployeeMath {
 		f.add(totalPayField);
 		
 		
-		String[] yearList = {"2023", "2024", "2025", "2026", "2027", "2028"};
+		String[] yearList = {"2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"};
 		
 		JComboBox yearDropDown = new JComboBox(yearList);
 		yearDropDown.setBounds(100, 200, 200, 30);
@@ -72,12 +72,17 @@ public class EmployeeMath {
 
 			public void actionPerformed(ActionEvent e) {
 				
-								
+				try {
 				basepay1 = Integer.valueOf(payField1.getText());
+				}catch(Exception NumberFormatException) {resultField.setText("Inga bokstäver tack");return;}
 				
+				try {
 				basepay2 = Integer.valueOf(payField2.getText());
+				}catch(Exception NumberFormatException) {resultField.setText("Inga bokstäver tack");return;}
 				
+				try {
 				yearTotal = Integer.valueOf(totalPayField.getText());
+				}catch(Exception NumberFormatException) {resultField.setText("Inga bokstäver tack");return;}
 				
 				year = Integer.valueOf((String) yearDropDown.getSelectedItem());
 				
