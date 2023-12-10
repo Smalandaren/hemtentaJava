@@ -59,6 +59,9 @@ public class Translator {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				if (input.getText().equals("")) {return;}
+				
 				//Indexvariabler för de olika språken
 				int inputLanguage = languageInDD.getSelectedIndex();
 				int outputLanguage = languageOutDD.getSelectedIndex();
@@ -88,7 +91,6 @@ public class Translator {
 				if (!found) {
 					outputField.setText("Ordet hittades inte");
 				}
-				
 			}
 		});
 		
