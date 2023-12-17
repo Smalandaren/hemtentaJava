@@ -86,6 +86,7 @@ public class Train {
 		bookedList.setBounds(50, 350, 300, 160);
 		f.add(bookedList);
 		
+		seatDropDown.addItem("Välj Plats");
 		//Sätter alla platser i dropdpwnmanyn
 		for(Seat x : seatList) {
 			seatDropDown.addItem(x.number + " " + x.special);
@@ -120,6 +121,7 @@ public class Train {
 				
 				//Uppdaterar DDmenyn för platsval
 				seatDropDown.removeAllItems();
+				seatDropDown.addItem("Välj Plats");
 				for(Seat x : seatList) {
 					if(x.name[stretchInt].equals("")) {
 						seatDropDown.addItem(x.number + " " + x.special);

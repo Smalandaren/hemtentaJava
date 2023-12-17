@@ -73,12 +73,12 @@ public class EmployeeMath {
 		
 		
 		Button calcLunch = new Button("Räkna ut");
-		calcLunch.setBounds(550, 150, 150, 50);
+		calcLunch.setBounds(550, 250, 150, 50);
 		f.add(calcLunch);
 		
 		
 		JTextArea lunchOut = new JTextArea();
-		lunchOut.setBounds(550, 230, 250, 150);
+		lunchOut.setBounds(550, 350, 250, 150);
 		f.add(lunchOut);
 		
 		
