@@ -59,10 +59,42 @@ public class EmployeeMath {
 		f.add(resultField);
 		
 		
+		
+		
+		TextField normalLunchIn = new TextField();
+		normalLunchIn.setBounds(550, 50, 250, 30);
+		f.add(normalLunchIn);
+		
+		TextField luxLunchIn = new TextField();
+		luxLunchIn.setBounds(550, 100, 250, 30);
+		f.add(luxLunchIn);
+		
+		
+		Button calcLunch = new Button("Räkna ut");
+		calcLunch.setBounds(550, 150, 150, 50);
+		f.add(calcLunch);
+		
+		
+		JTextArea lunchOut = new JTextArea();
+		lunchOut.setBounds(550, 230, 250, 150);
+		f.add(lunchOut);
+		
+		
+		Label normalLunchText = new Label("Vanliga luncher/år");
+		normalLunchText.setBounds(440, 50, 120, 30);
+		f.add(normalLunchText);
+		
+		Label luxLunchText = new Label("Lyxiga luncher/år");
+		luxLunchText.setBounds(440, 100, 120, 30);
+		f.add(luxLunchText);
+		
+		
+		
+		
 		Label invis = new Label();
 		f.add(invis);
 		
-		f.setSize(600, 600);
+		f.setSize(1000, 600);
 		f.setVisible(true);
 		f.setLayout(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,6 +121,26 @@ public class EmployeeMath {
 				resultField.setText(String.valueOf((int)ABCDE.calc(basepay1)) + " Kr per månad för grupp 1\n");
 				resultField.setText(resultField.getText() + String.valueOf((int)FG.calc(basepay2)) + " Kr per månad för grupp 2\n");
 				resultField.setText(resultField.getText() + String.valueOf((int)HIJ.calc()) + " Kr per månad för grupp 3");
+			}
+		});
+		
+		
+		calcLunch.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				int normalLunches = Integer.valueOf(normalLunchIn.getText());
+				int luxLunches = Integer.valueOf(luxLunchIn.getText());
+				int yearCost = normalLunches * 75 + luxLunches * 125;
+				
+				lunchOut.setText("Per år: " + (yearCost) + "kr\n"
+								+ "Per månad: " + ((yearCost)/12) + "kr\n"
+								+ "Per vecka: " + ((yearCost)/52) + "kr\n");
+				} catch(Exception NumberFormatException) {
+					lunchOut.setText("Siffror tack");
+					return;
+				}
 			}
 		});
 		

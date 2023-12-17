@@ -134,5 +134,4 @@ public class Train {
 		f.setLayout(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }
