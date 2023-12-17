@@ -8,6 +8,8 @@ public class Translator {
 
 	public static void main(String[] args) {
 		
+		//GUI shit
+		
 		JFrame f = new JFrame("Translator");
 		
 		TextField input = new TextField();
@@ -18,7 +20,7 @@ public class Translator {
 		fromLabel.setBounds(50, 100, 200, 20);
 		f.add(fromLabel);
 		
-		
+		//Array som används till dropdownmenyn
 		String[] languages = {"Svenska", "Engelska", "Spanska", "Italienska"};
 		
 		JComboBox languageInDD = new JComboBox(languages);
@@ -70,14 +72,12 @@ public class Translator {
 				String inputWord = input.getText();
 				inputWord = inputWord.substring(0, 1).toUpperCase() + inputWord.substring(1).toLowerCase();
 				
-				//Håller reda på vilket ord man är på
+				//Håller reda på vilket ord man är på och om ordet hittats
 				int wordIndex = 0;
-				//Håller reda på om ordet hittats
 				boolean found = false;
 				
-				//Loopar genom inputspråkets ord
+				//Loopar genom inputspråkets ord och ser om inputordet finns i inputspråkets ord
 				for (String x : languageList[inputLanguage]) {
-					//Om inputordet finns i inputspråkets ord
 					if (x.equals(inputWord)) {
 						//Sätter outputen till ordet med index wordIndex i listan med index outputLanguage i listan languageList
 						outputField.setText(languageList[outputLanguage][wordIndex]);
