@@ -165,6 +165,7 @@ public class Train {
 				
 				//Uppdaterar seatdropdownen
 				seatDropDown.removeAllItems();
+				seatDropDown.addItem("Välj Plats");
 				for(Seat x : seatList) {
 					if(x.name[stretchInt].equals("")) {
 						seatDropDown.addItem(x.number + " " + x.special);
