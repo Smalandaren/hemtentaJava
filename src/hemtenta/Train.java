@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class Train {
 	
-	
+	//Skapar objekt för alla platser (skulle använda loop om det var fler men lättare att göra på här med få)
 	static Seat one = new FirstClass(1);
 	static Seat two = new FirstClass(2);
 	static Seat three = new Seat(3);
@@ -18,11 +18,14 @@ public class Train {
 	static Seat nine = new Seat(9);
 	static Seat ten = new Seat(10);
 	
+	//Skapar en array med alla platser i för att kunna loopa genom
 	static Seat[] seatList = {one, two, three, four, five, six, seven, eight, nine, ten};
 	
+	//int för att hålla reda på vilken sträcka man har vald
 	static int stretchInt = 0;
 	
 	
+	//Uppdaterar bokningslistan
 	static String setBookedListString() {
 		String bookedListString = "";
 		
@@ -32,15 +35,16 @@ public class Train {
 		
 		return bookedListString;
 		
-		
 	}
 
+	
 	public static void main(String[] args) {
 
+		//Namn för slumpmässig påfyllning av vagnen
 		String[] randomNames = {"Isak", "Mae", "Carl", "Felicia", "Theodor", "Hampus", "Sofia", "Anders", "Påven", "Obama"};
 		
 		
-		
+		//GUI shit
 		JFrame f = new JFrame();
 		
 		
@@ -56,7 +60,7 @@ public class Train {
 		seatDDLabel.setBounds(5, 155, 40, 20);
 		f.add(seatDDLabel);
 		
-		
+		//Array för DDmenyn för de olika sträckorna
 		String[] stretchList = {"Malmö - Nässjö", "Nässjö - Linköping", "Linköping - Stockholm"};
 		
 		JComboBox stretchDD = new JComboBox(stretchList);
@@ -80,32 +84,40 @@ public class Train {
 		bookedList.setBounds(50, 350, 300, 160);
 		f.add(bookedList);
 		
-		
+		//Sätter alla platser i dropdpwnmanyn
 		for(Seat x : seatList) {
 			seatDropDown.addItem(x.number + " " + x.special);
 		}
 		
-		
+		//Uppdaterar bokningslistan (kommer bara ha tomma platser atm)
 		bookedList.setText(setBookedListString());
 		
-		
+		//Bokningsknappen
 		book.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				
+				//Tar namnet från namnrutan
 				String inputName = nameIn.getText();
-				String selectionInput = (String) seatDropDown.getSelectedItem();
-				String[] parts = selectionInput.split(" ");
-				int seatNumber = Integer.valueOf(parts[0]);
 				
-				for(Seat x : seatList) {
-					if (x.number == seatNumber) {
-							x.name[stretchInt] = inputName;
+				//Tar platsnumret från valet i DDmenyin (ja klyddigt men det var bästa sättet jag kom på)
+				//(index skulle inte funka eftersom jag tar bort bokade från menyn)
+				try {
+					String selectionInput = (String) seatDropDown.getSelectedItem();
+					String[] parts = selectionInput.split(" ");
+					int seatNumber = Integer.valueOf(parts[0]);
+					
+					//Om en ledig plats på sträckan passar med den valda platsen, sätt det namnet på platsen
+					for(Seat x : seatList) {
+						if (x.number == seatNumber) {
+								x.name[stretchInt] = inputName;
+						}
 					}
-				}
+				} catch(Exception NullPointerException){return;} //Om det inte finns några platser gör inget
 				
+				
+				//Uppdaterar DDmenyn för platsval
 				seatDropDown.removeAllItems();
-				
 				for(Seat x : seatList) {
 					if(x.name[stretchInt].equals("")) {
 						seatDropDown.addItem(x.number + " " + x.special);
@@ -117,11 +129,12 @@ public class Train {
 			}
 		});
 		
-		
+		//Fyll vagnen-knapp
 		bookRandom.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				
+				//Loopar genom tomma platser och sätter namn från randomnamn-listan på platserna
 				int nameNumber = 0;
 				for(Seat x : seatList) {
 					if(x.name[stretchInt].equals("")) {
@@ -130,6 +143,7 @@ public class Train {
 						bookedList.setText(setBookedListString());	
 					}
 				}
+				//Tömmer lediga platser DDmenyn
 				seatDropDown.removeAllItems();
 				
 			}
@@ -155,7 +169,7 @@ public class Train {
 			}
 		});
 		
-		
+		//Idiotlabel som behövdes för att det sista jag lägger in tar upp hela fönstret
 		Label invis = new Label();
 		f.add(invis);
 		

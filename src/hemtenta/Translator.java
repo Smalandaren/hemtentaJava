@@ -94,7 +94,7 @@ public class Translator {
 			}
 		});
 		
-		
+		//Idiotlabel som behövdes för att det sista jag lägger in tar upp hela fönstret
 		Label invis = new Label();
 		f.add(invis);
 		
