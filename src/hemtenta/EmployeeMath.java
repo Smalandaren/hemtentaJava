@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//Använda hemsidor: w3schools
+
 public class EmployeeMath {
 	
 	static int yearTotal;

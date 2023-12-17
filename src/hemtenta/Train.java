@@ -1,5 +1,7 @@
 package hemtenta;
 
+//Använda hemsidor: w3schools
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
