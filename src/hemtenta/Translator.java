@@ -1,6 +1,6 @@
 package hemtenta;
 
-//Använda hemsidor: w3schools
+//Använda hemsidor: w3schools,  https://web.mit.edu/6.005/www/sp14/psets/ps4/java-6-tutorial/components.html
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,6 +46,7 @@ public class Translator {
 		
 		JTextArea outputField = new JTextArea();
 		outputField.setBounds(50, 340, 200, 30);
+		outputField.setEditable(false);
 		f.add(outputField);
 		
 		
