@@ -84,7 +84,9 @@ public class Train {
 		
 		JTextArea bookedList = new JTextArea();
 		bookedList.setBounds(50, 350, 300, 160);
+		bookedList.setEditable(false);
 		f.add(bookedList);
+		
 		
 		seatDropDown.addItem("Välj Plats");
 		//Sätter alla platser i dropdpwnmanyn
